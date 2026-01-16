@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECO MONITOR</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@600;700&family=Poppins:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app">
+    <header>
+      <h1>ECO MONITOR</h1>
+      <small>Cuida tu casa, cuida su energía.</small>
+    </header>
+
+    <main>
+
+      <!-- PANTALLA 1 — DISPOSITIVOS -->
+      <section id="screen-dispositivos" class="screen active">
+        <h2 class="screen-title">Tus Dispositivos</h2>
+
+        <div class="devices-header">
+          <input class="filter-input" placeholder="Filtrar" disabled />
+          <button class="btn-add">+ Agregar</button>
+        </div>
+
+        <article class="device-card" data-id="1">
+          <div class="device-icon">💽</div>
+          <div class="device-info">
+            <strong>Salon IoT</strong>
+            <div>Nombre: PRUEBACORRIENTE</div>
+            <div>Modelo: Ecom A101</div>
+          </div>
+          <button class="power-btn">⏻</button>
+        </article>
+<!-- 
+        <article class="device-card" data-id="1">
+          <div class="device-icon">🍞</div>
+          <div class="device-info">
+            <strong>Cocina</strong>
+            <div>Nombre: Tostador</div>
+            <div>Modelo: Ecom T200</div>
+          </div>
+          <button class="power-btn on">⏻</button>
+        </article> -->
+        
+
+      </section>
+
+      <!-- PANTALLA 2 — RESUMEN -->
+      <section id="screen-resumen" class="screen">
+
+        <h2 class="greeting">Buenas tardes, Sergio</h2>
+        <p class="subtitle">Consumo energético</p>
+
+        <!-- CIRCULAR PROGRESS BAR -->
+        <div class="circular-container">
+          <div class="circular-progress" data-value="72">
+            <svg class="progress-ring" width="180" height="180">
+              <circle class="progress-ring__background" cx="90" cy="90" r="75"></circle>
+              <circle class="progress-ring__circle" cx="90" cy="90" r="75"></circle>
+            </svg>
+
+            <div class="progress-content">
+              <span class="progress-value" id="progress-value">0%</span>
+              <span class="progress-label">Energía usada</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CÍRCULOS DIARIOS -->
+        <div class="weekly-progress">
+
+          <div class="day">
+            <span class="day-label">M</span>
+            <svg class="mini-ring" width="48" height="48">
+              <circle class="mini-bg" cx="24" cy="24" r="18"></circle>
+              <circle class="mini-fill" cx="24" cy="24" r="18"></circle>
+            </svg>
+          </div>
+
+          <div class="day">
+            <span class="day-label">M</span>
+            <svg class="mini-ring" width="48" height="48">
+              <circle class="mini-bg" cx="24" cy="24" r="18"></circle>
+              <circle class="mini-fill" cx="24" cy="24" r="18"></circle>
+            </svg>
+          </div>
+
+          <div class="day">
+            <span class="day-label">J</span>
+            <svg class="mini-ring" width="48" height="48">
+              <circle class="mini-bg" cx="24" cy="24" r="18"></circle>
+              <circle class="mini-fill" cx="24" cy="24" r="18"></circle>
+            </svg>
+          </div>
+
+          <div class="day">
+            <span class="day-label">V</span>
+            <svg class="mini-ring" width="48" height="48">
+              <circle class="mini-bg" cx="24" cy="24" r="18"></circle>
+              <circle class="mini-fill" cx="24" cy="24" r="18"></circle>
+            </svg>
+          </div>
+
+          <div class="day">
+            <span class="day-label">S</span>
+            <svg class="mini-ring" width="48" height="48">
+              <circle class="mini-bg" cx="24" cy="24" r="18"></circle>
+              <circle class="mini-fill" cx="24" cy="24" r="18"></circle>
+            </svg>
+          </div>
+
+          <div class="day">
+            <span class="day-label">D</span>
+            <svg class="mini-ring" width="48" height="48">
+              <circle class="mini-bg" cx="24" cy="24" r="18"></circle>
+              <circle class="mini-fill" cx="24" cy="24" r="18"></circle>
+            </svg>
+          </div>
+
+          <div class="day">
+            <span class="day-label">L</span>
+            <svg class="mini-ring" width="48" height="48">
+              <circle class="mini-bg" cx="24" cy="24" r="18"></circle>
+              <circle class="mini-fill" cx="24" cy="24" r="18"></circle>
+            </svg>
+          </div>
+
+        </div>
+
+        <!-- 🔥 TARJETAS DE MÉTRICAS FUNCIONALES -->
+        <div class="metric-cards">
+
+          <div class="metric-card">
+            <span class="metric-title">Consumo hoy</span>
+            <span class="metric-value" id="consumo-hoy">-- kWh</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-title">Ahorro estimado</span>
+            <span class="metric-value" id="ahorro">--%</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-title">Consumo mensual</span>
+            <span class="metric-value" id="consumo-mes">-- kWh</span>
+          </div>
+
+          <div class="metric-card">
+            <span class="metric-title">CO₂ evitado</span>
+            <span class="metric-value" id="co2-evitado">-- kg</span>
+          </div>
+
+        </div>
+        
+        <div class="chart-container">
+          <h3>Consumo semanal</h3>
+          <canvas id="weeklyChart"></canvas>
+        </div>
+
+      </section>
+
+      <!-- AJUSTES -->
+      <section id="screen-ajustes" class="screen">
+        <h2 class="settings-title">Ajustes</h2>
+
+        <div class="settings-group">
+          <h3 class="settings-section-title">Preferencias</h3>
+          <button class="settings-item"><span>Idioma</span><span class="arrow">›</span></button>
+          <button class="settings-item"><span>Fecha / Zona horaria</span><span class="arrow">›</span></button>
+        </div>
+
+        <div class="settings-group">
+          <h3 class="settings-section-title">Ajustes</h3>
+          <button class="settings-item"><span>Red de Internet</span><span class="arrow">›</span></button>
+          <button class="settings-item"><span>Cuenta</span><span class="arrow">›</span></button>
+          <button class="settings-item"><span>Notificaciones</span><span class="arrow">›</span></button>
+        </div>
+
+      </section>
+
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="tab-btn active" data-screen="screen-dispositivos">📱<br>Dispositivos</button>
+      <button class="tab-btn" data-screen="screen-resumen">⚡<br>Resumen</button>
+      <button class="tab-btn" data-screen="screen-ajustes">⚙️<br>Ajustes</button>
+    </nav>
+  </div>
+
+ 
+  <!-- Botón flotante del chatbot -->
+  <div id="chatbot-btn">
+      <img src="img/ecomolog1.jpeg" alt="chatbot">
+  </div>
+
+  <!-- Chatbot flotante -->
+  <div id="chat-container">
+      <div id="chat-header">EcoBot ⚡</div>
+
+      <div id="chat-messages"></div>
+
+      <div id="chat-input-area">
+          <input type="text" id="chat-input" placeholder="Escribe algo...">
+          <button id="chat-send">Enviar</button>
+      </div>
+  </div>
+  <script src="progress.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+
+
+</html>
